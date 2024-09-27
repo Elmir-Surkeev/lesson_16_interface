@@ -31,7 +31,6 @@ public class SimpleData implements Connectable{
         };
         return null;
     }
-
     @Override
     public boolean containsRecordByKey(String key){
         for(Object record: recods){
