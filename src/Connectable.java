@@ -1,8 +1,8 @@
 public interface Connectable {
-    void OpenConnect() throws Exception;
-    void CloseConnect() throws Exception;
-    boolean CheckConnect();
-    Object GetIndex(int index)throws Exception;
+    void openConnect() throws Exception;
+    void closeConnect() throws Exception;
+    boolean checkConnect();
+    Object getIndex(int index)throws Exception;
     boolean containsRecordByKey(String key)throws Exception;
     Object getRecordByKey(String key)throws Exception;
     Object[] getRecords(int startIndex, int endIndex)throws Exception;

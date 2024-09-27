@@ -9,23 +9,23 @@ public class SimpleData implements Connectable{
     }
 
     @Override
-    public void  OpenConnect(){
+    public void  openConnect(){
         System.out.println("Соединение с базой данных открыто");
         this.connected = true;
     }
 
     @Override
-    public void CloseConnect(){
+    public void closeConnect(){
         System.out.println("Соединение с базой данных закрыто");
         this.connected = false;
     }
     @Override
-    public boolean CheckConnect(){
+    public boolean checkConnect(){
         return this.connected;
     }
 
     @Override
-    public Object GetIndex(int index){
+    public Object getIndex(int index){
         if (index >=0 && index < recods.length){
             return recods[index];
         };
