@@ -12,16 +12,6 @@ public class JsonDatabase {
     private boolean connected;
     private String filePath;
 
-    static class Record {
-        String key;
-        String value;
-
-        public Record(String key, String value) {
-            this.key = key;
-            this.value = value;
-        }
-    }
-
     public JsonDatabase(String filePath) {
         this.filePath = filePath;
         this.records = new Record[0];

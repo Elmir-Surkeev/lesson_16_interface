@@ -1,7 +1,9 @@
 public interface Connectable {
     void openConnect() throws Exception;
     void closeConnect() throws Exception;
-    boolean checkConnect();
+    boolean isConnect(){
+        return connected;
+    };
     Object getIndex(int index)throws Exception;
     boolean containsRecordByKey(String key)throws Exception;
     Object getRecordByKey(String key)throws Exception;
