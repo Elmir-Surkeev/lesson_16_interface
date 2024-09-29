@@ -47,7 +47,7 @@ public class DataServiceImpl implements DataService {
             Data[] data = JSONFileHandler.getData();
             for (Data dataFromDatabase : data) {
                 if (dataFromDatabase.getKey().equals(key)) {
-                    return dataFromDatabase;
+                    System.out.println(dataFromDatabase);
                 }
             }
             throw new Exception("Записи с ключом %s не существует в базе данных".formatted(key));
@@ -62,7 +62,7 @@ public class DataServiceImpl implements DataService {
             if (startIndex < 0 || endIndex < 0 || startIndex > endIndex || endIndex > data.length - 1) {
                 throw new IndexOutOfBoundsException("Некорректные индексы диапазона");
             }
-            return Arrays.copyOfRange(data, startIndex, endIndex + 1);
+            System.out.println(Arrays.toString(Arrays.copyOfRange(data, startIndex, endIndex + 1)));
         }
         throw new Exception("Соединение с базой данных закрыто");
     }
@@ -82,6 +82,7 @@ public class DataServiceImpl implements DataService {
         }
         if (isOpenDatabaseConnection()) {
             JSONFileHandler.writeData(data);
+            System.out.println("Данные успешно записаны");
             return;
         }
         throw new Exception("Соединение с базой данных закрыто");

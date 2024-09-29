@@ -6,8 +6,8 @@ public class Main {
         DataService dataService = new DataServiceImpl();
         Scanner sc = new Scanner(System.in);
         while (true) {
+            System.out.println("Введите 1 для открытия сервера, 2 для проверки подключения, 0 для выхода и закрытия подключения");
             try {
-                System.out.println("Введите 1 для открытия сервера, 2 для проверки подключения, 0 для выхода и закрытия подключения");
                 int choice = sc.nextInt();
                 sc.nextLine();
 
@@ -51,53 +51,73 @@ public class Main {
         int choice = sc.nextInt();
         sc.nextLine();
 
-        switch (choice) {
-            case 1:
-                System.out.println("Введите индекс");
-                int index = sc.nextInt();
-                sc.nextLine();  // Очищаем буфер
-                System.out.println(dataService.getDataByIndex(index));
-                break;
-            case 2:
-                System.out.println("Введите ключ для просмотра по ключу");
-                String str = sc.nextLine();
-                System.out.println(dataService.isDataByKey(str));
-                break;
-            case 3:
-                System.out.println("Введите ключ");
-                String strr = sc.next();
-                System.out.println(dataService.getDataByKey(strr));
-                break;
-            case 4:
-                System.out.println("Введите начальный индекс");
-                int startIndex = sc.nextInt();
-                System.out.println("Введите конечный индекс");
-                int endIndex = sc.nextInt();
-                dataService.getDataByIndexRange(startIndex, endIndex);
-                break;
-            case 5:
-                int count = dataService.countDatabaseSize();
-                System.out.println("Количество записей: " + count);
-                break;
-            case 6:
-                System.out.println("Введите значение");
-                String value = sc.next();
-                System.out.println("Введите ключ");
-                String key = sc.next();
-                dataService.addDataToDatabase(new Data(key, value));
-                break;
-            case 7:
-                System.out.println("Введите индекс");
-                int indexx = sc.nextInt();
-                dataService.updateDataByIndex(indexx, new Data());
-                break;
-            case 8:
-                System.out.println("Введите ключ");
-                String values = sc.next();
-                dataService.updateDataByKey(values, new Data());
-                break;
-            default:
-                System.out.println("Вы ввели неправильное число");
+        try {
+            switch (choice) {
+                case 1:
+                    System.out.println("Введите индекс");
+                    int index = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println(dataService.getDataByIndex(index));
+                    break;
+                case 2:
+                    System.out.println("Введите ключ для просмотра по ключу");
+                    String str = sc.nextLine();
+                    System.out.println(dataService.isDataByKey(str));
+                    break;
+                case 3:
+                    System.out.println("Введите ключ");
+                    String strr = sc.next();
+                    System.out.println(dataService.getDataByKey(strr));
+                    break;
+                case 4:
+                    System.out.println("Введите начальный индекс");
+                    int startIndex = sc.nextInt();
+                    System.out.println("Введите конечный индекс");
+                    int endIndex = sc.nextInt();
+                    dataService.getDataByIndexRange(startIndex, endIndex);
+                    break;
+                case 5:
+                    int count = dataService.countDatabaseSize();
+                    System.out.println("Количество записей: " + count);
+                    break;
+                case 6:
+                    String[] data = getDataFromSc(sc);
+                    String key = data[0];
+                    String value = data[1];
+                    dataService.addDataToDatabase(new Data(key, value));
+                    break;
+                case 7:
+                    System.out.println("Введите индекс");
+                    int indexx = sc.nextInt();
+                    String[] dataa = getDataFromSc(sc);
+                    key = dataa[0];
+                    value = dataa[1];
+                    dataService.updateDataByIndex(indexx, new Data(key, value));
+                    break;
+                case 8:
+                    System.out.println("Введите ключ");
+                    String keys = sc.nextLine();
+                    String[] dataas = getDataFromSc(sc);
+                    key = dataas[0];
+                    value = dataas[1];
+                    dataService.updateDataByKey(keys, new Data(key, value));
+                    break;
+                default:
+                    System.out.println("Вы ввели неправильное число");
+            }
+        }catch (NullPointerException e){
+            e.getMessage();
+        }catch (RuntimeException e){
+            e.getMessage();
+        }catch (Exception e){
+            e.getMessage();
         }
+    }
+    public static String[] getDataFromSc(Scanner sc) {
+        System.out.println("Введите ключ");
+        String key = sc.next();
+        System.out.println("Введите значение");
+        String value = sc.next();
+        return new String[]{key, value};
     }
 }
