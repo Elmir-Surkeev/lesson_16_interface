@@ -1,1 +1,15 @@
-[{"key":"qwe","value":"asd"},{"key":"2","value":"second commit"},{"key":"3","value":"second commit"},{"key":"4","value":"third commit"}]
+[
+  {
+    "key": "1",
+    "value": "asd"
+  },
+  {
+    "key": "2",
+    "value": "second commit"
+  },
+  {},
+  {
+    "key": "4",
+    "value": "third commit"
+  }
+]
