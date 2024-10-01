@@ -1,1 +1,26 @@
-[{"key":"1","value":"first commit"},{"key":"99","value":"Hellow"},{"key":"3","value":"third commit"}]
+[
+  {
+    "key": "car",
+    "value": "toyota"
+  },
+  {
+    "key": "car",
+    "value": "BMW"
+  },
+  {
+    "key": "car",
+    "value": "Mercedes"
+  },
+  {
+    "key": "truck",
+    "value": "Scania Longline"
+  },
+  {
+    "key": "car",
+    "value": "BMW"
+  },
+  {
+    "key": "truck",
+    "value": "Урал-Next"
+  }
+]

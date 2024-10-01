@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -43,7 +44,7 @@ public class Main {
     }
 
     public static void startFunctionalData(DataService dataService, Scanner sc) throws Exception {
-        System.out.println("Введите 1 для записи по индексу, 2 для проверки по ключу, 3 для записи по ключу\n" +
+        System.out.println("Введите 1 для записи по индексу, 2 для проверки по ключу, 3 для вывода по Типу машины\n" +
                 "введите 4 для считывания по начальным и конечным индексам" + "\n" +
                 "введите 5 для просмотра количества записей, введите 6 для того чтобы добавить запись в базу\n" +
                 "введите 7 для обновления значения по индексу, введите 8 для обновления содержимого по ключу");
@@ -60,12 +61,12 @@ public class Main {
                     System.out.println(dataService.getDataByIndex(index));
                     break;
                 case 2:
-                    System.out.println("Введите ключ для просмотра по ключу");
+                    System.out.println("Введите тип машины для просмотра по типу");
                     String str = sc.nextLine();
                     System.out.println(dataService.isDataByKey(str));
                     break;
                 case 3:
-                    System.out.println("Введите ключ");
+                    System.out.println("Введите тип машина");
                     String strr = sc.next();
                     System.out.println(dataService.getDataByKey(strr));
                     break;
@@ -78,6 +79,7 @@ public class Main {
                     break;
                 case 5:
                     int count = dataService.countDatabaseSize();
+                    System.out.println(Arrays.toString(new DataService[]{dataService}));
                     System.out.println("Количество записей: " + count);
                     break;
                 case 6:
@@ -95,7 +97,7 @@ public class Main {
                     dataService.updateDataByIndex(indexx, new Data(key, value));
                     break;
                 case 8:
-                    System.out.println("Введите ключ");
+                    System.out.println("Тип Машины");
                     String keys = sc.nextLine();
                     String[] dataas = getDataFromSc(sc);
                     key = dataas[0];

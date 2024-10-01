@@ -20,4 +20,5 @@ public interface DataService {
     void updateDataByIndex(int index, Data data) throws Exception;
 
     void updateDataByKey(String key, Data data) throws Exception;
+    //default void toString(String key, String value) throws Exception;
 }
